@@ -1,4 +1,3 @@
-# jooq-mysql-example
+# JOOQ examples
 
-#### 介绍
-jOOQ 整合 MySQL 示例
+[JOOQ Docs](https://www.jooq.org/learn/)
