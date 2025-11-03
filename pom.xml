@@ -11,6 +11,7 @@
   <modules>
     <module>jooq-in-spring</module>
     <module>jooq-in-spring-boot</module>
+    <module>quick-start</module>
   </modules>
 
   <properties>
@@ -80,6 +81,29 @@
       <version>1.18.24</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://maven.aliyun.com/repository/central</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>

@@ -2,6 +2,8 @@ package org.shiloh.jooq.test.basic;
 
 import org.jooq.Record;
 import org.jooq.Result;
+import org.jooq.Statement;
+import org.jooq.Table;
 import org.junit.Test;
 import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
 import org.shiloh.jooq.test.base.JooqTests;
@@ -18,6 +20,24 @@ import static org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
  * @date 2023/2/11 15:24
  */
 public class JooqSimpleTests extends JooqTests {
+
+    @Test
+    public void parserTest() {
+        final String sql = "create table sys_user" +
+                "(" +
+                "    id       bigint auto_increment comment 'ID，自增主键'" +
+                "        primary key," +
+                "    username varchar(50)  null comment '用户名'," +
+                "    password varchar(255) null comment '密码'," +
+                "    age      int          null comment '年龄'," +
+                "    sex      varchar(10)  null comment '性别'," +
+                "    email    varchar(255) null comment '电子邮箱'," +
+                "    dept_id  bigint       null comment '所在部门 ID'" +
+                ")" +
+                "    comment '系统用户信息表';";
+        final Statement statement = this.dslContext.parser().parseStatement(sql);
+        System.out.println(statement);
+    }
 
     /**
      * JOOQ 查询测试
@@ -37,7 +57,7 @@ public class JooqSimpleTests extends JooqTests {
         //     // 获取用户信息
         //     final long id = record.getValue(SYS_USER.ID);
         //     final String username = record.getValue(SYS_USER.USERNAME);
-        //     System.out.printf("id = %d, username = %s\n", id, username);
+        //     System.out.printf("id = %d, username = %s", id, username);
         //     System.out.println(record);
         // });
 
@@ -49,7 +69,7 @@ public class JooqSimpleTests extends JooqTests {
         //     // 转换后的对象可以直接获取到表字段对应的数据
         //     final long id = sysUserRecord.getId();
         //     final String username = sysUserRecord.getUsername();
-        //     System.out.printf("id = %d, username = %s\n", id, username);
+        //     System.out.printf("id = %d, username = %s", id, username);
         //     System.out.println(sysUserRecord);
         // });
 
